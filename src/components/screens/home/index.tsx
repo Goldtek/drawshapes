@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import _ from "lodash";
 
 import "./styles.css";
 import { Rectangle, Line, Circle, RectangleInput, LineInput, CircleInput } from '../../custom';
@@ -29,18 +30,17 @@ const Home = () => {
 
 
     const handleChange = (event: any, index: number) => {
+        const items = _.cloneDeep(inputList);
         const name = event.target.name;
-        inputList[index][name] =  event.target.value;
-        console.log('after', inputList[index]);
-       console.log('inputList',  inputList);
-        setInputList(inputList);
+        items[index][name] =  event.target.value;
+        console.log('items', items);
+        setInputList(items);
     }
 
     const removeClick = (index: number) => {
-        inputList.splice(index,1);
-        boxes.splice(index,1);
-        setInputList(inputList);
-        setInputBox(boxes);
+        const items = _.cloneDeep(inputList);
+        items.splice(index,1);
+        setInputList(items);
      }
    
 
@@ -52,7 +52,6 @@ const Home = () => {
 
     const createCircle = () => {
         const index = inputList.length - 1;
-        // setInputBox([...boxes, <CircleInput top={inputList[index].top} left={inputList[index].left} radius={inputList[index].radius} fill={inputList[index].fill} key={index} id={index} ChangeValue={handleChange} />]) 
         shape.push([...shapes, <Circle top={inputList[index].top} left={inputList[index].left} radius={inputList[index].radius} fill={inputList[index].fill} key={index} />]);
         setShapes(shape);
         setCircle(false); 
@@ -65,7 +64,6 @@ const Home = () => {
 
     const createRectangle = () => {
         const index = inputList.length - 1;
-        // setInputBox([...boxes, <RectangleInput width={inputList[index].width} height={inputList[index].height} left={inputList[index].left} top={inputList[index].top} fill={inputList[index].fill} key={index} id={index} ChangeValue={handleChange}  />]);
         shape.push([...shapes, <Rectangle width={inputList[index].width} height={inputList[index].height} left={inputList[index].left} top={inputList[index].top} fill={inputList[index].fill} key={index} />]) ;
         setShapes(shape);
         setRect(false);
@@ -78,7 +76,6 @@ const Home = () => {
 
     const createLine = () => {
         const index = inputList.length - 1;
-        // setInputBox([...boxes, <LineInput x1={inputList[index].x1} y1={inputList[index].y1} x2={inputList[index].x2} y2={inputList[index].y2} height={inputList[index].height} width={inputList[index].width} color={inputList[index].color} thickness={inputList[index].thickness} key={index} id={index} ChangeValue={handleChange}/> ])
         shape.push([...shapes, <Line x1={inputList[index].x1} y1={inputList[index].y1} x2={inputList[index].x2} y2={inputList[index].y2} height={inputList[index].height} width={inputList[index].width} color={inputList[index].color} thickness={inputList[index].thickness} key={index} />]);
         setShapes(shape);
         setline(false);
