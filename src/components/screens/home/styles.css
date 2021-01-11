@@ -24,6 +24,7 @@
 
   .config {
     min-height: 200px;
+    padding: 20px;
   }
 
   h2 {
