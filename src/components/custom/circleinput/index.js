@@ -18,7 +18,7 @@ const CircleInput = ({left, top, fill, radius, id, ChangeValue, remove}: propPar
            <label> Radius</label> <input type="text" name="radius" value={radius} onChange={(e) => ChangeValue(e,id)} /> <br/>
            <label> Top</label> <input type="text" name="top" value={top} onChange={(e) => ChangeValue(e,id)} /> <br />
            <label> Left </label> <input type="text" name="left" value={left} onChange={(e) => ChangeValue(e,id)} /> <br />
-           <label> Color</label>  <input type="text" name="color" value={fill} onChange={(e) => ChangeValue(e,id)} />
+           <label> Color</label>  <input type="text" name="fill" value={fill} onChange={(e) => ChangeValue(e,id)} />
            <button onClick={() => remove(id)}>Delete</button>
         </div>
     )
