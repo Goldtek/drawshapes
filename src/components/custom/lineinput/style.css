@@ -1,6 +1,15 @@
 .inputboxes {
-    display: flex;
-    align-items: space-between;
-    width: 200px;
-    border: 1px solid red;
+    display: block; 
+}
+
+input {
+    padding: 5px;
+    height: 20px;
+    align-self: flex-end;
+}
+
+.btn {
+    color: #fff;
+    background-color: red;
+    height: 40px;
 }

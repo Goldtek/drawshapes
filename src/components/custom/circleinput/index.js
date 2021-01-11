@@ -1,10 +1,16 @@
 import React from 'react';
 
 interface propParams {
-    left: number, top: number, fill: string, radius: number, id: number,  ChangeValue: (event: React.MouseEvent<HTMLButtonElement>, id: number)  => void
+    left: number, 
+    top: number, 
+    fill: string, 
+    radius: number, 
+    id: number,  
+    ChangeValue: (event: React.MouseEvent<HTMLButtonElement>, id: number)  => void,
+    remove: (id: number)  => void
 }
 
-const CircleInput = ({left, top, fill, radius, id, ChangeValue}: propParams) => {
+const CircleInput = ({left, top, fill, radius, id, ChangeValue, remove}: propParams) => {
 
     return (
         <div className="inputboxes">
@@ -13,6 +19,7 @@ const CircleInput = ({left, top, fill, radius, id, ChangeValue}: propParams) => 
            <label> Top</label> <input type="text" name="top" value={top} onChange={(e) => ChangeValue(e,id)} /> <br />
            <label> Left </label> <input type="text" name="left" value={left} onChange={(e) => ChangeValue(e,id)} /> <br />
            <label> Color</label>  <input type="text" name="color" value={fill} onChange={(e) => ChangeValue(e,id)} />
+           <button onClick={() => remove(id)}>Delete</button>
         </div>
     )
 
