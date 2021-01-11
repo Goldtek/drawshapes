@@ -25,7 +25,14 @@ const Home = () => {
             createLine();
         }
 
-    }, [circle, rect, line])
+    }, [circle, rect, line]);
+
+
+    const handleChange = (event: any, index: number) => {
+        const name = event.target.name;
+        inputList[index].name = event.target.value;
+      
+     }
 
     const addCircle =  () => {
         setInputList([...inputList, { top: 150, left: 150, radius: 80, fill: "#000" }]);
@@ -34,7 +41,7 @@ const Home = () => {
 
     const createCircle = () => {
         const index = inputList.length - 1;
-           setInputBox([...boxes, <CircleInput top={inputList[index].top} left={inputList[index].left} radius={inputList[index].radius} fill={inputList[index].fill} key={index}  />]) 
+           setInputBox([...boxes, <CircleInput top={inputList[index].top} left={inputList[index].left} radius={inputList[index].radius} fill={inputList[index].fill} key={index} id={index} ChangeValue={handleChange} />]) 
         shape.push([...shapes, <Circle top={inputList[index].top} left={inputList[index].left} radius={inputList[index].radius} fill={inputList[index].fill} key={index} />]);
         setShapes(shape);
         setCircle(false); 
@@ -47,7 +54,7 @@ const Home = () => {
 
     const createRectangle = () => {
         const index = inputList.length - 1;
-        setInputBox([...boxes, <RectangleInput width={inputList[index].width} height={inputList[index].height} left={inputList[index].left} top={inputList[index].top} fill={inputList[index].fill} key={index}  />]);
+        setInputBox([...boxes, <RectangleInput width={inputList[index].width} height={inputList[index].height} left={inputList[index].left} top={inputList[index].top} fill={inputList[index].fill} key={index} id={index} ChangeValue={handleChange}  />]);
         shape.push([...shapes, <Rectangle width={inputList[index].width} height={inputList[index].height} left={inputList[index].left} top={inputList[index].top} fill={inputList[index].fill} key={index} />]) ;
         setShapes(shape);
         setRect(false);
@@ -60,7 +67,7 @@ const Home = () => {
 
     const createLine = () => {
         const index = inputList.length - 1;
-        setInputBox([...boxes, <LineInput x1={inputList[index].x1} y1={inputList[index].y1} x2={inputList[index].x2} y2={inputList[index].y2} height={inputList[index].height} width={inputList[index].width} color={inputList[index].color} thickness={inputList[index].thickness} key={index} /> ])
+        setInputBox([...boxes, <LineInput x1={inputList[index].x1} y1={inputList[index].y1} x2={inputList[index].x2} y2={inputList[index].y2} height={inputList[index].height} width={inputList[index].width} color={inputList[index].color} thickness={inputList[index].thickness} key={index} id={index} ChangeValue={handleChange}/> ])
         shape.push([...shapes, <Line x1={inputList[index].x1} y1={inputList[index].y1} x2={inputList[index].x2} y2={inputList[index].y2} height={inputList[index].height} width={inputList[index].width} color={inputList[index].color} thickness={inputList[index].thickness} key={index} />]);
         setShapes(shape);
         setline(false);
