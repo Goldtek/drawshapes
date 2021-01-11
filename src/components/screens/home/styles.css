@@ -1,0 +1,32 @@
+.container {
+    background-color: #e8e3e3;
+    height: 800px;
+    width: 100%;
+    overflow: 'inherit';
+  }
+
+  .button {
+    background-color: #0e48ec;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 14px;
+    border-width: 0px;
+    border-radius: 5px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .config {
+    min-height: 200px;
+  }
+
+  h2 {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
